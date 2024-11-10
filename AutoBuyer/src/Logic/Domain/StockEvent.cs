@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AutoBuyer.Logic
+namespace AutoBuyer.Logic.Domain
 {
     public class StockEvent
     {
@@ -73,7 +73,7 @@ namespace AutoBuyer.Logic
                 string[] data = pair.Split(new[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
                 fields.Add(data[0].Trim(), data[1].Trim());
             }
-            
+
             return fields;
         }
 
@@ -89,7 +89,7 @@ namespace AutoBuyer.Logic
 
         public static StockEvent Purchase(string buyer, int numberSold)
         {
-            return From($"Event: PURCHASE; Buyer: {buyer}; NumberSold: {numberSold};");
+            return From($"Event: PURCHASE; BuyerName: {buyer}; NumberSold: {numberSold};");
         }
     }
 

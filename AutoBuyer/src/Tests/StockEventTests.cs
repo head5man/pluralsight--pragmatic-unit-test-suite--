@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
-using AutoBuyer.Logic;
+using AutoBuyer.Logic.Domain;
 using Moq;
 using Should;
 using Xunit;
@@ -77,10 +77,10 @@ namespace Tests
         {
             var stock = StockEvent.Purchase(buyer, numberSold);
 
-            stock.Type.ShouldEqual(StockEventType.Price);
+            stock.Type.ShouldEqual(StockEventType.Purchase);
             stock.NumberSold.ShouldEqual(numberSold);
             stock.BuyerName.ShouldEqual(buyer);
-            stock.ToString().ShouldEqual($"Event: PURCHASE; Buyer: {buyer}; NumberSold: {numberSold};");
+            stock.ToString().ShouldEqual($"Event: PURCHASE; BuyerName: {buyer}; NumberSold: {numberSold};");
         }
 
         private StockEvent Parses_event_type(string message, StockEventType type)
