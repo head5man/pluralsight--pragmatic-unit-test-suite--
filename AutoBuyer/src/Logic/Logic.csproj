@@ -45,6 +45,7 @@
     <Compile Include="BuyerPortfolio.cs" />
     <Compile Include="BuyerSnapshot.cs" />
     <Compile Include="BuyerState.cs" />
+    <Compile Include="Domain\StockCommand.cs" />
     <Compile Include="IBuyerListener.cs" />
     <Compile Include="IBuyerPortfolio.cs" />
     <Compile Include="IPortfolioListener.cs" />

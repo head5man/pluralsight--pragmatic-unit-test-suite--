@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BuyerPortfolioTests.cs" />
     <Compile Include="BuyerTests.cs" />
+    <Compile Include="StockCommandTests.cs" />
     <Compile Include="StockEventTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
