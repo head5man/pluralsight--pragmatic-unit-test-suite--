@@ -41,6 +41,9 @@ namespace AutoBuyer.Logic
 
                     case StockEventType.Close:
                         return ProcessCloseEvent();
+
+                    default:
+                        throw new InvalidOperationException();
                 }
             }
             return StockCommand.None();

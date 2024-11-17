@@ -77,6 +77,11 @@ namespace AutoBuyer.Logic.Domain
             return fields;
         }
 
+        public static StockEvent None()
+        {
+            return new StockEvent(StockEventType.None, new Dictionary<string, string>());
+        }
+
         public static StockEvent Close()
         {
             return From("Event: CLOSE;");
@@ -95,6 +100,7 @@ namespace AutoBuyer.Logic.Domain
 
     public enum StockEventType
     {
+        None = 0,
         Price,
         Purchase,
         Close

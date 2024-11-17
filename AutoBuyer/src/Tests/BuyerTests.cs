@@ -125,6 +125,15 @@ namespace Tests
             command.ShouldEqual(StockCommand.None());
             buyer.Snapshot.State.ShouldEqual(BuyerState.Closed);
         }
+
+        [Fact]
+        public void Buyer_thows_exception_for_unknown_event()
+        {
+            var buyer = CreateJoiningBuyer();
+
+            Assert.Throws<InvalidOperationException>(() => buyer.Process(StockEvent.None()));
+        }
+
         private Buyer CreateClosed(int maximumPrice = 5)
         {
             var buyer = CreateJoiningBuyer(maximumPrice, 1, "Buyer");
