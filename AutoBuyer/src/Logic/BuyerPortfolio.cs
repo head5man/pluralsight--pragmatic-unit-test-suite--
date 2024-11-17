@@ -1,3 +1,4 @@
+using AutoBuyer.Logic.Domain;
 using System.Collections.Generic;
 
 namespace AutoBuyer.Logic

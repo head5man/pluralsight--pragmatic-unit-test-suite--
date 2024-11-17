@@ -1,8 +1,7 @@
-﻿using AutoBuyer.Logic.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace AutoBuyer.Logic
+namespace AutoBuyer.Logic.Domain
 {
     public class Buyer : IStockEventListener
     {
@@ -69,7 +68,7 @@ namespace AutoBuyer.Logic
                 Snapshot = Snapshot.Monitoring(currentPrice, numberInStock);
                 return StockCommand.None();
             }
-            
+
             Snapshot = Snapshot.Buying(currentPrice, numberInStock);
             int numberToBuy = Math.Min(numberInStock, _numberToBuy);
             return StockCommand.Buy(currentPrice, numberToBuy);

@@ -1,6 +1,5 @@
 ﻿using AutoBuyer.Logic;
 using AutoBuyer.Logic.Domain;
-using Moq;
 using Should;
 using System;
 using Xunit;

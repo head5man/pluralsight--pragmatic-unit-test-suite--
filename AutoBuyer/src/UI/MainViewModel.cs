@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using AutoBuyer.Logic;
+using AutoBuyer.Logic.Domain;
 
 namespace AutoBuyer.UI
 {
