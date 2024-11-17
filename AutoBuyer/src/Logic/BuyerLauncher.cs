@@ -14,9 +14,10 @@ namespace AutoBuyer.Logic
         public void StartBuying(string newItemId, int newItemMaximumPrice, int numberToBuy)
         {
             IStockItem stockItem = _warehouse.GetStockItemFor(newItemId);
-            var buyer = new Buyer(newItemId, newItemMaximumPrice, numberToBuy, stockItem);
-            stockItem.AddStockEventListener(buyer);
-            _portfolio.AddBuyer(buyer);
+            // TODO: fixme
+            //var buyer = new Buyer(newItemId, newItemMaximumPrice, numberToBuy, stockItem);
+            //stockItem.AddStockEventListener(buyer);
+            //_portfolio.AddBuyer(buyer);
         }
     }
 }

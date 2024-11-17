@@ -12,7 +12,7 @@ namespace Tests
             var sut = new BuyerPortfolio();
             var mock = new Mock<IPortfolioListener>();
             sut.AddPortfolioListener(mock.Object);
-            var buyer = new Buyer("ItemId", 10, 1, null);
+            var buyer = new Buyer("name", "ItemId", 10, 1, null);
 
             sut.AddBuyer(buyer);
 
