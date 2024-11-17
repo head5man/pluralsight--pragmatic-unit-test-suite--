@@ -1,5 +1,4 @@
-﻿using AutoBuyer.Logic;
-using AutoBuyer.Logic.Domain;
+﻿using AutoBuyer.Logic.Domain;
 using Should;
 using System;
 using Xunit;
@@ -28,8 +27,7 @@ namespace Tests
                 .VerifyState(BuyerState.Closed)
                 .VerifyCurrentPrice(0)
                 .VerifyBoughtSoFar(0)
-                .VerifyNumberInStock(0)
-                .VerifyItemId("id");
+                .VerifyNumberInStock(0);
         }
 
         [Fact]
@@ -44,8 +42,7 @@ namespace Tests
                 .VerifyState(BuyerState.Monitoring)
                 .VerifyCurrentPrice(20)
                 .VerifyBoughtSoFar(0)
-                .VerifyNumberInStock(5)
-                .VerifyItemId("id");
+                .VerifyNumberInStock(5);
         }
 
         [Fact]
@@ -152,9 +149,9 @@ namespace Tests
             return ret;
         }
 
-        private Buyer CreateJoiningBuyer(int maximumPrice = 100, int numberToBuy = 1, string name = "", string itemId = "id")
+        private Buyer CreateJoiningBuyer(int maximumPrice = 100, int numberToBuy = 1, string name = "")
         {
-            return new Buyer(buyerName: name, itemId: itemId, maximumPrice: maximumPrice, numberToBuy: numberToBuy, stockItem: null);
+            return new Buyer(buyerName: name, maximumPrice: maximumPrice, numberToBuy: numberToBuy);
         }
     }
 
@@ -182,13 +179,6 @@ namespace Tests
         public static BuyerSnapshot VerifyNumberInStock(this BuyerSnapshot snap, int numberInStock)
         {
             snap.NumberInStock.ShouldEqual(numberInStock);
-            return snap;
-        }
-
-
-        public static BuyerSnapshot VerifyItemId(this BuyerSnapshot snap, string id)
-        {
-            snap.ItemId.ShouldEqual(id);
             return snap;
         }
     }

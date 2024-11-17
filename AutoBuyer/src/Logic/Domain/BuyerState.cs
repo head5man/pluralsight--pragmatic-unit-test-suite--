@@ -1,4 +1,4 @@
-﻿namespace AutoBuyer.Logic
+﻿namespace AutoBuyer.Logic.Domain
 {
     public enum BuyerState
     {

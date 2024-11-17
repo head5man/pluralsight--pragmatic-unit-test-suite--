@@ -1,32 +1,38 @@
-﻿using AutoBuyer.Logic;
+﻿using AutoBuyer.Logic.Connection;
+using AutoBuyer.Logic.Domain;
 
 namespace AutoBuyer.UI
 {
     public class BuyerViewModel : ViewModel
     {
         public string ItemId { get; }
-        public string CurrentPrice { get; private set; }
-        public string NumberInStock { get; private set; }
-        public string BoughtSoFar { get; private set; }
-        public string State { get; private set; }
 
-        public BuyerViewModel(string itemId, BuyerSnapshot snapshot)
+        private readonly Buyer _buyer;
+        private readonly IStockItemConnection _connection;
+
+        public string CurrentPrice => _buyer.Snapshot.CurrentPrice.ToString();
+        public string NumberInStock => _buyer.Snapshot.NumberInStock.ToString();
+        public string BoughtSoFar => _buyer.Snapshot.BoughtSoFar.ToString();
+        public string State => _buyer.Snapshot.State.ToString();
+
+        public BuyerViewModel(string itemId, int maximumPrice, int numberToBuy, string buyerName, IStockItemConnection connection)
         {
             ItemId = itemId;
-            UpdateState(snapshot);
+            _buyer = new Buyer(buyerName, maximumPrice, numberToBuy);
+            _connection = connection;
+            _connection.MessageReceived += StockMessageReceived;
         }
 
-        public void UpdateState(BuyerSnapshot snapshot)
+        private void StockMessageReceived(string message)
         {
-            CurrentPrice = snapshot.CurrentPrice.ToString();
-            NumberInStock = snapshot.NumberInStock.ToString();
-            BoughtSoFar = snapshot.BoughtSoFar.ToString();
-            State = snapshot.State.ToString();
+            var @event = StockEvent.From(message);
+            var command = _buyer.Process(@event);
+            if (command != StockCommand.None())
+            {
+                _connection.SendMessage(command.ToString());
+            }
 
-            Notify(nameof(CurrentPrice));
-            Notify(nameof(NumberInStock));
-            Notify(nameof(BoughtSoFar));
-            Notify(nameof(State));
+            Notify(string.Empty);
         }
     }
 }

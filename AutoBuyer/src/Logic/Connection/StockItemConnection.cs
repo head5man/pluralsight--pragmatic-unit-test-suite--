@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AutoBuyer.Logic
+namespace AutoBuyer.Logic.Connection
 {
     public class StockItemConnection : IStockItemConnection
     {

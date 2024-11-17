@@ -1,4 +1,5 @@
 ﻿using AutoBuyer.Logic;
+using AutoBuyer.Logic.Connection;
 
 namespace AutoBuyer.UI
 {
@@ -9,12 +10,8 @@ namespace AutoBuyer.UI
         public App()
         {
             var connection = new WarehouseConnection();
-            var warehouse = new Warehouse(connection, BuyerName);
 
-            var portfolio = new BuyerPortfolio();
-            var launcher = new BuyerLauncher(warehouse, portfolio);
-            var mainViewModel = new MainViewModel(portfolio);
-            mainViewModel.AddUserRequestListener(launcher);
+            var mainViewModel = new MainViewModel(BuyerName, connection);
 
             var window = new MainWindow
             {
