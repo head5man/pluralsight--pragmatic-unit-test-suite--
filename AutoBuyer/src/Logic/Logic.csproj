@@ -57,6 +57,7 @@
     <Compile Include="IWarehouseConnection.cs" />
     <Compile Include="Buyer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="Domain\StockEvent.cs" />
     <Compile Include="StockItem.cs" />
     <Compile Include="StockItemConnection.cs" />
