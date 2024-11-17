@@ -23,8 +23,8 @@ namespace Tests
             var buyer = CreateJoiningBuyer();
             
             StockCommand command = buyer.Process(StockEvent.Close());
-            command.ShouldEqual(StockCommand.None());
 
+            command.ShouldEqual(StockCommand.None());
             buyer.Snapshot
                 .VerifyState(BuyerState.Closed)
                 .VerifyCurrentPrice(0)
@@ -37,10 +37,10 @@ namespace Tests
         public void Buyer_does_not_buy_when_price_event_with_too_high_price_arrives()
         {
             var buyer = CreateJoiningBuyer(maximumPrice: 10);
+
             StockCommand command = buyer.Process(StockEvent.Price(20, 5));
             
             command.ShouldEqual(StockCommand.None());
-
             buyer.Snapshot
                 .VerifyState(BuyerState.Monitoring)
                 .VerifyCurrentPrice(20)
@@ -53,6 +53,7 @@ namespace Tests
         public void Buyer_buys_when_price_event_with_appropriate_price_arrives()
         {
             var buyer = CreateJoiningBuyer(50);
+
             StockCommand command = buyer.Process(StockEvent.Price(10, 5));
 
             command.ShouldEqual(StockCommand.Buy(10, 1));
@@ -67,6 +68,7 @@ namespace Tests
         public void Buyer_attempts_to_buy_maximum_amount_available()
         {
             var buyer = CreateJoiningBuyer(50, 10);
+
             StockCommand command = buyer.Process(StockEvent.Price(10, 5));
 
             command.ShouldEqual(StockCommand.Buy(10, 5));
@@ -122,6 +124,7 @@ namespace Tests
             var buyer = CreateClosed(maximumPrice);
 
             StockCommand command = buyer.Process(StockEvent.Price(maximumPrice, 10));
+
             command.ShouldEqual(StockCommand.None());
             buyer.Snapshot.State.ShouldEqual(BuyerState.Closed);
         }
@@ -131,7 +134,9 @@ namespace Tests
         {
             var buyer = CreateJoiningBuyer();
 
-            Assert.Throws<InvalidOperationException>(() => buyer.Process(StockEvent.None()));
+            var action = (Action)( () => buyer.Process(StockEvent.None()) );
+
+            Assert.Throws<InvalidOperationException>(action);
         }
 
         private Buyer CreateClosed(int maximumPrice = 5)
