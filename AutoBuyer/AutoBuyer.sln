@@ -12,7 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notes", "notes", "{8CC580BB-C683-415B-8F85-6FFC23EC5D59}"
 	ProjectSection(SolutionItems) = preProject
 		..\notes\notes-code-analysis.md = ..\notes\notes-code-analysis.md
-		notes-integration-testing.md = notes-integration-testing.md
+		..\notes\notes-integration-testing.md = ..\notes\notes-integration-testing.md
 		..\notes\notes-introduction.md = ..\notes\notes-introduction.md
 		..\notes\notes-styles-of-unit-testing.md = ..\notes\notes-styles-of-unit-testing.md
 		..\notes\notes-testing-efficiency.md = ..\notes\notes-testing-efficiency.md
