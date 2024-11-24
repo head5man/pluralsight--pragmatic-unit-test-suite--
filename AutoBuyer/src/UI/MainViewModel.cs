@@ -11,7 +11,7 @@ namespace AutoBuyer.UI
     {
         private readonly string _buyerName;
         private readonly IWarehouseConnection _connection;
-        private readonly IBuyerRepository _repository;
+        private readonly BuyerRepository _repository;
 
         public ObservableCollection<BuyerViewModel> Buyers { get; }
         public Command StartBuyingCommand { get; private set; }
@@ -20,7 +20,7 @@ namespace AutoBuyer.UI
         public int NewItemMaximumPrice { get; set; }
         public int NumberToBuy { get; set; }
 
-        public MainViewModel(string buyerName, IWarehouseConnection connection, IBuyerRepository repository)
+        public MainViewModel(string buyerName, IWarehouseConnection connection, BuyerRepository repository)
         {
             _buyerName = buyerName;
             _connection = connection;

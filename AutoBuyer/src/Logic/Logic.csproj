@@ -96,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\BuyerRepository.cs" />
-    <Compile Include="Database\IBuyerRepository.cs" />
     <Compile Include="Domain\BuyerSnapshot.cs" />
     <Compile Include="Domain\BuyerState.cs" />
     <Compile Include="Domain\StockCommand.cs" />

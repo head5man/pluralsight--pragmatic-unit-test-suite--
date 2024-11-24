@@ -10,7 +10,7 @@ namespace AutoBuyer.UI
 
         private readonly Buyer _buyer;
         private readonly IStockItemConnection _connection;
-        private readonly IBuyerRepository _repository;
+        private readonly BuyerRepository _repository;
 
         public string CurrentPrice => _buyer.Snapshot.CurrentPrice.ToString();
         public string NumberInStock => _buyer.Snapshot.NumberInStock.ToString();
@@ -23,7 +23,7 @@ namespace AutoBuyer.UI
             int numberToBuy,
             string buyerName,
             IStockItemConnection connection,
-            IBuyerRepository repository)
+            BuyerRepository repository)
         {
             ItemId = itemId;
             _buyer = new Buyer(buyerName, maximumPrice, numberToBuy);

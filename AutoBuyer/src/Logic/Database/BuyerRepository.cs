@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace AutoBuyer.Logic.Database
 {
-    public class BuyerRepository : IBuyerRepository
+    public class BuyerRepository
     {
         private readonly IConfig _config;
 
