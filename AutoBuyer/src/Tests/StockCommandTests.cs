@@ -1,6 +1,5 @@
 ﻿using AutoBuyer.Logic.Domain;
 using Should;
-using System.Linq;
 using Xunit;
 
 namespace Tests

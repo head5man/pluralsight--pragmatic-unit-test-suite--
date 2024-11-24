@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AutoBuyer.Logic.Domain
 {
     public class Buyer
     {
-        private readonly string _buyerName;
-        private readonly int _maximumPrice;
-        private readonly int _numberToBuy;
-        public BuyerSnapshot Snapshot { get; private set; }
-
         public Buyer(string buyerName, int maximumPrice, int numberToBuy)
         {
-            _buyerName = buyerName;
-            _numberToBuy = numberToBuy;
-            _maximumPrice = maximumPrice;
+            BuyerName = buyerName;
+            NumberToBuy = numberToBuy;
+            MaximumPrice = maximumPrice;
             Snapshot = BuyerSnapshot.Joining();
         }
+
+        public BuyerSnapshot Snapshot { get; private set; }
+
+        public string BuyerName { get; }
+
+        public int MaximumPrice { get; }
+
+        public int NumberToBuy { get; }
 
         public StockCommand Process(StockEvent @event)
         {
@@ -39,12 +43,27 @@ namespace AutoBuyer.Logic.Domain
             return StockCommand.None();
         }
 
+        public Dictionary<string, object> ToDictionary()
+        {
+            var dict = new Dictionary<string, object>
+            {
+                { nameof(BuyerName), BuyerName },
+                { nameof(MaximumPrice), MaximumPrice },
+                { nameof(NumberToBuy), NumberToBuy },
+                { nameof(Snapshot.CurrentPrice), Snapshot.CurrentPrice },
+                { nameof(Snapshot.NumberInStock), Snapshot.NumberInStock },
+                { nameof(Snapshot.BoughtSoFar), Snapshot.BoughtSoFar },
+                { nameof(Snapshot.State), (int)Snapshot.State }
+            };
+            return dict;
+        }
+
         private StockCommand ProcessPurchaseEvent(string buyerName, int numberSold)
         {
-            if (buyerName == _buyerName)
+            if (buyerName == BuyerName)
             {
                 Snapshot = Snapshot.Bought(numberSold);
-                if (Snapshot.BoughtSoFar >= _numberToBuy)
+                if (Snapshot.BoughtSoFar >= NumberToBuy)
                 {
                     Snapshot = Snapshot.Closed();
                 }
@@ -54,14 +73,14 @@ namespace AutoBuyer.Logic.Domain
 
         private StockCommand ProcessPriceEvent(int currentPrice, int numberInStock)
         {
-            if (currentPrice > _maximumPrice)
+            if (currentPrice > MaximumPrice)
             {
                 Snapshot = Snapshot.Monitoring(currentPrice, numberInStock);
                 return StockCommand.None();
             }
 
             Snapshot = Snapshot.Buying(currentPrice, numberInStock);
-            int numberToBuy = Math.Min(numberInStock, _numberToBuy);
+            int numberToBuy = Math.Min(numberInStock, NumberToBuy);
             return StockCommand.Buy(currentPrice, numberToBuy);
         }
 
