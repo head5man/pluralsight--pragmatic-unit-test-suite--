@@ -5,7 +5,7 @@ using Moq;
 using Should;
 using Xunit;
 
-namespace Tests
+namespace Tests.Unit
 {
     public class StockEventTests
     {
