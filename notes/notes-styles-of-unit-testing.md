@@ -139,6 +139,8 @@ Can be internal or external. In order to be part of the public API it has to be 
 
 Internal communication (inside the hexagon) is usually implementation detail and verifying against it is more likely to produce false positives and maintainablity is poor.
 
+As a guideline you should verify collaborations at the very edges of your system.
+
 ![](internal-collaboration.png)
 We can see in the diagram that both of the classes `Order` and `User` transition to a new state and can be observed and verified.
 ![](internal-collaboration-hexagon.png)

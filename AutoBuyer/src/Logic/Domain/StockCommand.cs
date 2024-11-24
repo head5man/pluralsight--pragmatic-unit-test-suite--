@@ -26,6 +26,8 @@ namespace AutoBuyer.Logic.Domain
             return _content;
         }
 
+        public static implicit operator string(StockCommand s) => s.ToString();
+
         protected override bool Equals(StockCommand other)
         {
             return this.GetHashCode().Equals(other.GetHashCode());
