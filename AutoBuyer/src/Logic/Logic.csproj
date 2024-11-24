@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\IConfig.cs" />
     <Compile Include="Domain\BuyerSnapshot.cs" />
     <Compile Include="Domain\BuyerState.cs" />
     <Compile Include="Domain\StockCommand.cs" />
