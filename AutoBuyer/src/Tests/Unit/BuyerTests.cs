@@ -3,7 +3,7 @@ using Should;
 using System;
 using Xunit;
 
-namespace Tests
+namespace Tests.Unit
 {
     public class BuyerTests
     {

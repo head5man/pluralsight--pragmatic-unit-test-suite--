@@ -4,11 +4,13 @@ using AutoBuyer.Logic.Domain;
 using AutoBuyer.UI;
 using Moq;
 using Should;
+using Tests.Unit;
+using Tests.Utils;
 using Xunit;
 
 namespace Tests.Integration
 {
-    public class BuyerViewModelTests
+    public class BuyerViewModelTests : Tests
     {
         [Fact]
         public void Joining_a_sale()
