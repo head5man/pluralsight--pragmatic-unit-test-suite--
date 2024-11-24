@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoBuyer.Common;
+using System;
 
 namespace AutoBuyer.Logic.Domain
 {

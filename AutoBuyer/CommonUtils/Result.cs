@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoBuyer.Logic
+namespace AutoBuyer.Common
 {
     /// <summary>
     /// Result class - wrapping state and error

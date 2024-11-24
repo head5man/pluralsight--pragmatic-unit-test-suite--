@@ -1,4 +1,4 @@
-﻿namespace AutoBuyer.Logic.Common
+﻿namespace AutoBuyer.Common
 {
     public interface IConfig
     {

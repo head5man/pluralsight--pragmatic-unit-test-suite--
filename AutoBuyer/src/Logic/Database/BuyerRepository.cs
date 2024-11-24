@@ -1,4 +1,4 @@
-﻿using AutoBuyer.Logic.Common;
+﻿using AutoBuyer.Common;
 using AutoBuyer.Logic.Domain;
 using MySql.Data.MySqlClient;
 using System;

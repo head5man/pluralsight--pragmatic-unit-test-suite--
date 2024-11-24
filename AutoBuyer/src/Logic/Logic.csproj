@@ -95,7 +95,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\IConfig.cs" />
     <Compile Include="Database\BuyerRepository.cs" />
     <Compile Include="Database\IBuyerRepository.cs" />
     <Compile Include="Domain\BuyerSnapshot.cs" />
@@ -105,15 +104,19 @@
     <Compile Include="Connection\IWarehouseConnection.cs" />
     <Compile Include="Domain\Buyer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Common\Result.cs" />
     <Compile Include="Domain\StockEvent.cs" />
     <Compile Include="Connection\StockItemConnection.cs" />
-    <Compile Include="Common\ValueObject.cs" />
     <Compile Include="Connection\WarehouseConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonUtils\Common.csproj">
+      <Project>{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

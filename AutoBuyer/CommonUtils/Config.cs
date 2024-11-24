@@ -1,27 +1,32 @@
-﻿using MySqlX.Serialization;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows.Media.Converters;
-using AutoBuyer.Logic.Common;
+﻿using System.Collections.Generic;
+using System.Reflection;
 
-namespace AutoBuyer.UI
+namespace AutoBuyer.Common
 {
-    public class Config : IConfig
+    public interface IParser
+    {
+        Dictionary<string, object> Parse(string input);
+    }
+
+    public class Config: IConfig
     {
         private Dictionary<string, object> _dictionary;
 
-        private Config()
+        protected Config(Dictionary<string, object> dictionary)
         {
-            using (var jsonstream = File.OpenText("secrets.json"))
-            {
-                _dictionary = JsonParser.Parse(jsonstream.ReadToEnd());
-            }
+            _dictionary = dictionary;
         }
 
-        public static IConfig Build()
+        public static IConfig Build(IParser parser, Assembly assembly = null, string resource = "secrets.json")
         {
-            var config = new Config();
+            if (assembly is null)
+            {
+                assembly = Assembly.GetCallingAssembly();
+            }
+
+            var json = ManifestReader.ReadManifestData(resource, assembly);
+            var dict = parser.Parse(json);
+            var config = new Config(dict);
             config.Connection = string.Format((string)config["format"], config["server"], config["username"], config["password"]);
             return config;
         }

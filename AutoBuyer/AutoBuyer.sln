@@ -12,10 +12,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notes", "notes", "{8CC580BB-C683-415B-8F85-6FFC23EC5D59}"
 	ProjectSection(SolutionItems) = preProject
 		..\notes\notes-code-analysis.md = ..\notes\notes-code-analysis.md
+		notes-integration-testing.md = notes-integration-testing.md
 		..\notes\notes-introduction.md = ..\notes\notes-introduction.md
 		..\notes\notes-styles-of-unit-testing.md = ..\notes\notes-styles-of-unit-testing.md
 		..\notes\notes-testing-efficiency.md = ..\notes\notes-testing-efficiency.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "CommonUtils\Common.csproj", "{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +38,10 @@ Global
 		{02F454DE-A863-46DF-B70E-E897108B21E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F454DE-A863-46DF-B70E-E897108B21E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F454DE-A863-46DF-B70E-E897108B21E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

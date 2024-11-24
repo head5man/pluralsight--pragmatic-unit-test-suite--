@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoBuyer.Logic
+namespace AutoBuyer.Common
 {
-        public abstract class ValueObject<T>
-        where T : ValueObject<T>
+    public abstract class ValueObject<T>
+    where T : ValueObject<T>
     {
         public override bool Equals(object obj)
         {
