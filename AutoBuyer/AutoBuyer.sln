@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notes", "notes", "{8CC580BB
 		..\notes\notes-testing-efficiency.md = ..\notes\notes-testing-efficiency.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "CommonUtils\Common.csproj", "{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "src\Common\Common.csproj", "{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

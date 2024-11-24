@@ -165,8 +165,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CommonUtils\Common.csproj">
-      <Project>{2FA6590E-ED8A-45F5-8562-6B2DD74826F4}</Project>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{2fa6590e-ed8a-45f5-8562-6b2dd74826f4}</Project>
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logic\Logic.csproj">
