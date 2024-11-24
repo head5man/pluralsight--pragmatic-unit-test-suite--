@@ -1,5 +1,6 @@
 ﻿using AutoBuyer.Logic;
 using AutoBuyer.Logic.Connection;
+using AutoBuyer.Logic.Database;
 
 namespace AutoBuyer.UI
 {
@@ -9,9 +10,10 @@ namespace AutoBuyer.UI
 
         public App()
         {
+            var config = Config.Build();
             var connection = new WarehouseConnection();
-
-            var mainViewModel = new MainViewModel(BuyerName, connection);
+            var database = new BuyerRepository(config);
+            var mainViewModel = new MainViewModel(BuyerName, connection, database);
 
             var window = new MainWindow
             {
