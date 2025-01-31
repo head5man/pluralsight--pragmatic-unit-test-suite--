@@ -1,0 +1,1 @@
+Hands-on changes to the course material source code while working through the pluralsight course [Building a Pragmatic Unit Test Suite](https://www.pluralsight.com/courses/pragmatic-unit-testing) by [Vladimir Khorikov](https://github.com/vkhorikov)
